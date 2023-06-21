@@ -1,29 +1,40 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'maingnxZcz.ui'
+## Form generated from reading UI file 'mainaNnMQX.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.0.2
+## Created by: Qt User Interface Compiler version 6.5.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
-
-from PySide6.QtCore import *
-from PySide6.QtGui import *
-from PySide6.QtWidgets import *
-
-from . resources_rc import *
+import requests
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QAbstractItemView, QAbstractScrollArea, QApplication, QCheckBox,
+    QComboBox, QCommandLinkButton, QFrame, QGridLayout,
+    QHBoxLayout, QHeaderView, QLabel, QLineEdit,
+    QMainWindow, QPlainTextEdit, QPushButton, QRadioButton,
+    QScrollArea, QScrollBar, QSizePolicy, QSlider,
+    QSpacerItem, QStackedWidget, QTableWidget, QTableWidgetItem,
+    QTextEdit, QVBoxLayout, QWidget)
+from .request_util import get_legacy_session
+from .resources_rc import *
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1280, 720)
+        MainWindow.resize(940, 560)
         MainWindow.setMinimumSize(QSize(940, 560))
         self.styleSheet = QWidget(MainWindow)
         self.styleSheet.setObjectName(u"styleSheet")
         font = QFont()
-        font.setFamily(u"Segoe UI")
+        font.setFamilies([u"Segoe UI"])
         font.setPointSize(10)
         font.setBold(False)
         font.setItalic(False)
@@ -588,7 +599,7 @@ class Ui_MainWindow(object):
         self.titleLeftApp.setObjectName(u"titleLeftApp")
         self.titleLeftApp.setGeometry(QRect(70, 8, 160, 20))
         font1 = QFont()
-        font1.setFamily(u"Segoe UI Semibold")
+        font1.setFamilies([u"Segoe UI Semibold"])
         font1.setPointSize(12)
         font1.setBold(False)
         font1.setItalic(False)
@@ -599,7 +610,7 @@ class Ui_MainWindow(object):
         self.titleLeftDescription.setGeometry(QRect(70, 27, 160, 16))
         self.titleLeftDescription.setMaximumSize(QSize(16777215, 16))
         font2 = QFont()
-        font2.setFamily(u"Segoe UI")
+        font2.setFamilies([u"Segoe UI"])
         font2.setPointSize(8)
         font2.setBold(False)
         font2.setItalic(False)
@@ -972,7 +983,7 @@ class Ui_MainWindow(object):
         self.maximizeRestoreAppBtn.setMinimumSize(QSize(28, 28))
         self.maximizeRestoreAppBtn.setMaximumSize(QSize(28, 28))
         font3 = QFont()
-        font3.setFamily(u"Segoe UI")
+        font3.setFamilies([u"Segoe UI"])
         font3.setPointSize(10)
         font3.setBold(False)
         font3.setItalic(False)
@@ -1029,12 +1040,977 @@ class Ui_MainWindow(object):
         self.verticalLayout_15.setContentsMargins(10, 10, 10, 10)
         self.stackedWidget = QStackedWidget(self.pagesContainer)
         self.stackedWidget.setObjectName(u"stackedWidget")
+        self.stackedWidget.setAutoFillBackground(False)
         self.stackedWidget.setStyleSheet(u"background: transparent;")
         self.home = QWidget()
         self.home.setObjectName(u"home")
-        self.home.setStyleSheet(u"background-image: url(:/images/images/images/PyDracula_vertical.png);\n"
-"background-position: center;\n"
-"background-repeat: no-repeat;")
+        self.verticalLayout_38 = QVBoxLayout(self.home)
+        self.verticalLayout_38.setObjectName(u"verticalLayout_38")
+        self.horizontalLayout_6 = QHBoxLayout()
+        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_6.addItem(self.horizontalSpacer)
+
+        self.lineEdit_2 = QLineEdit(self.home)
+        self.lineEdit_2.setObjectName(u"lineEdit_2")
+        self.lineEdit_2.setMinimumSize(QSize(150, 30))
+
+        self.horizontalLayout_6.addWidget(self.lineEdit_2)
+
+        self.pushButton_3 = QPushButton(self.home)
+        self.pushButton_3.setObjectName(u"pushButton_3")
+        self.pushButton_3.setMinimumSize(QSize(100, 30))
+        self.pushButton_3.setFont(font)
+        self.pushButton_3.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_3.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        icon4 = QIcon()
+        icon4.addFile(u":/icons/images/icons/cil-magnifying-glass.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_3.setIcon(icon4)
+        self.pushButton_3.setIconSize(QSize(16, 16))
+
+        self.horizontalLayout_6.addWidget(self.pushButton_3)
+
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_6.addItem(self.horizontalSpacer_2)
+
+
+        self.verticalLayout_38.addLayout(self.horizontalLayout_6)
+
+        self.horizontalLayout_56 = QHBoxLayout()
+        self.horizontalLayout_56.setObjectName(u"horizontalLayout_56")
+        self.widget_4 = QWidget(self.home)
+        self.widget_4.setObjectName(u"widget_4")
+        self.verticalLayout_36 = QVBoxLayout(self.widget_4)
+        self.verticalLayout_36.setObjectName(u"verticalLayout_36")
+        self.horizontalLayout_7 = QHBoxLayout()
+        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
+        self.label_2 = QLabel(self.widget_4)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setStyleSheet(u"font:14pt;")
+
+        self.horizontalLayout_7.addWidget(self.label_2)
+
+        self.label_4 = QLabel(self.widget_4)
+        self.label_4.setObjectName(u"label_4")
+
+        self.horizontalLayout_7.addWidget(self.label_4)
+
+        self.horizontalSpacer_7 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_7.addItem(self.horizontalSpacer_7)
+
+
+        self.verticalLayout_36.addLayout(self.horizontalLayout_7)
+
+        self.horizontalLayout_8 = QHBoxLayout()
+        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
+        self.label_5 = QLabel(self.widget_4)
+        self.label_5.setObjectName(u"label_5")
+        self.label_5.setMaximumSize(QSize(40, 16777215))
+
+        self.horizontalLayout_8.addWidget(self.label_5)
+
+        self.label_3 = QLabel(self.widget_4)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setStyleSheet(u"color:#F1B248;")
+
+        self.horizontalLayout_8.addWidget(self.label_3)
+
+        self.label_6 = QLabel(self.widget_4)
+        self.label_6.setObjectName(u"label_6")
+
+        self.horizontalLayout_8.addWidget(self.label_6)
+
+        self.horizontalSpacer_8 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_8.addItem(self.horizontalSpacer_8)
+
+
+        self.verticalLayout_36.addLayout(self.horizontalLayout_8)
+
+        self.horizontalLayout_55 = QHBoxLayout()
+        self.horizontalLayout_55.setSpacing(6)
+        self.horizontalLayout_55.setObjectName(u"horizontalLayout_55")
+        self.label_7 = QLabel(self.widget_4)
+        self.label_7.setObjectName(u"label_7")
+        self.label_7.setMinimumSize(QSize(48, 48))
+        self.label_7.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.horizontalLayout_55.addWidget(self.label_7)
+
+        self.widget = QWidget(self.widget_4)
+        self.widget.setObjectName(u"widget")
+        self.verticalLayout_33 = QVBoxLayout(self.widget)
+        self.verticalLayout_33.setObjectName(u"verticalLayout_33")
+        self.horizontalLayout_54 = QHBoxLayout()
+        self.horizontalLayout_54.setObjectName(u"horizontalLayout_54")
+        self.label_10 = QLabel(self.widget)
+        self.label_10.setObjectName(u"label_10")
+        self.label_10.setMinimumSize(QSize(21, 21))
+        self.label_10.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.horizontalLayout_54.addWidget(self.label_10)
+
+        self.label_9 = QLabel(self.widget)
+        self.label_9.setObjectName(u"label_9")
+        self.label_9.setMinimumSize(QSize(21, 21))
+        self.label_9.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.horizontalLayout_54.addWidget(self.label_9)
+
+        self.label_8 = QLabel(self.widget)
+        self.label_8.setObjectName(u"label_8")
+        self.label_8.setMinimumSize(QSize(135, 0))
+
+        self.horizontalLayout_54.addWidget(self.label_8)
+
+        self.horizontalSpacer_9 = QSpacerItem(82, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_54.addItem(self.horizontalSpacer_9)
+
+        self.horizontalLayout_54.setStretch(0, 1)
+        self.horizontalLayout_54.setStretch(1, 1)
+
+        self.verticalLayout_33.addLayout(self.horizontalLayout_54)
+
+        self.horizontalLayout_29 = QHBoxLayout()
+        self.horizontalLayout_29.setSpacing(6)
+        self.horizontalLayout_29.setObjectName(u"horizontalLayout_29")
+        self.horizontalLayout_29.setContentsMargins(-1, 0, -1, 0)
+        self.label_11 = QLabel(self.widget)
+        self.label_11.setObjectName(u"label_11")
+        self.label_11.setMinimumSize(QSize(16, 16))
+        self.label_11.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.horizontalLayout_29.addWidget(self.label_11)
+
+        self.label_12 = QLabel(self.widget)
+        self.label_12.setObjectName(u"label_12")
+        self.label_12.setMinimumSize(QSize(16, 16))
+        self.label_12.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.horizontalLayout_29.addWidget(self.label_12)
+
+        self.label_13 = QLabel(self.widget)
+        self.label_13.setObjectName(u"label_13")
+        self.label_13.setMinimumSize(QSize(16, 16))
+        self.label_13.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.horizontalLayout_29.addWidget(self.label_13)
+
+        self.label_14 = QLabel(self.widget)
+        self.label_14.setObjectName(u"label_14")
+        self.label_14.setMinimumSize(QSize(16, 16))
+        self.label_14.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.horizontalLayout_29.addWidget(self.label_14)
+
+        self.label_15 = QLabel(self.widget)
+        self.label_15.setObjectName(u"label_15")
+        self.label_15.setMinimumSize(QSize(16, 16))
+        self.label_15.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.horizontalLayout_29.addWidget(self.label_15)
+
+        self.label_16 = QLabel(self.widget)
+        self.label_16.setObjectName(u"label_16")
+        self.label_16.setMinimumSize(QSize(16, 16))
+        self.label_16.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.horizontalLayout_29.addWidget(self.label_16)
+
+        self.label_17 = QLabel(self.widget)
+        self.label_17.setObjectName(u"label_17")
+        self.label_17.setMinimumSize(QSize(16, 16))
+        self.label_17.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.horizontalLayout_29.addWidget(self.label_17)
+
+        self.label_18 = QLabel(self.widget)
+        self.label_18.setObjectName(u"label_18")
+        self.label_18.setMinimumSize(QSize(16, 16))
+        self.label_18.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.horizontalLayout_29.addWidget(self.label_18)
+
+        self.horizontalSpacer_10 = QSpacerItem(47, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_29.addItem(self.horizontalSpacer_10)
+
+        self.horizontalLayout_29.setStretch(0, 1)
+        self.horizontalLayout_29.setStretch(1, 1)
+        self.horizontalLayout_29.setStretch(2, 1)
+        self.horizontalLayout_29.setStretch(3, 1)
+        self.horizontalLayout_29.setStretch(4, 1)
+        self.horizontalLayout_29.setStretch(5, 1)
+        self.horizontalLayout_29.setStretch(6, 1)
+        self.horizontalLayout_29.setStretch(7, 1)
+
+        self.verticalLayout_33.addLayout(self.horizontalLayout_29)
+
+
+        self.horizontalLayout_55.addWidget(self.widget)
+
+        self.horizontalLayout_55.setStretch(0, 1)
+        self.horizontalLayout_55.setStretch(1, 4)
+
+        self.verticalLayout_36.addLayout(self.horizontalLayout_55)
+
+        self.widget_5 = QWidget(self.widget_4)
+        self.widget_5.setObjectName(u"widget_5")
+        self.horizontalLayout_53 = QHBoxLayout(self.widget_5)
+        self.horizontalLayout_53.setSpacing(0)
+        self.horizontalLayout_53.setObjectName(u"horizontalLayout_53")
+        self.horizontalLayout_53.setContentsMargins(0, 0, 0, 0)
+        self.widget_2 = QWidget(self.widget_5)
+        self.widget_2.setObjectName(u"widget_2")
+        self.verticalLayout_34 = QVBoxLayout(self.widget_2)
+        self.verticalLayout_34.setObjectName(u"verticalLayout_34")
+        self.horizontalLayout_23 = QHBoxLayout()
+        self.horizontalLayout_23.setObjectName(u"horizontalLayout_23")
+        self.label_47 = QLabel(self.widget_2)
+        self.label_47.setObjectName(u"label_47")
+        sizePolicy3 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.label_47.sizePolicy().hasHeightForWidth())
+        self.label_47.setSizePolicy(sizePolicy3)
+        self.label_47.setMinimumSize(QSize(21, 21))
+        self.label_47.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.horizontalLayout_23.addWidget(self.label_47)
+
+        self.label_48 = QLabel(self.widget_2)
+        self.label_48.setObjectName(u"label_48")
+        self.label_48.setMinimumSize(QSize(92, 21))
+
+        self.horizontalLayout_23.addWidget(self.label_48)
+
+
+        self.verticalLayout_34.addLayout(self.horizontalLayout_23)
+
+        self.horizontalLayout_21 = QHBoxLayout()
+        self.horizontalLayout_21.setObjectName(u"horizontalLayout_21")
+        self.label_43 = QLabel(self.widget_2)
+        self.label_43.setObjectName(u"label_43")
+        sizePolicy3.setHeightForWidth(self.label_43.sizePolicy().hasHeightForWidth())
+        self.label_43.setSizePolicy(sizePolicy3)
+        self.label_43.setMinimumSize(QSize(21, 21))
+        self.label_43.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.horizontalLayout_21.addWidget(self.label_43)
+
+        self.label_44 = QLabel(self.widget_2)
+        self.label_44.setObjectName(u"label_44")
+        self.label_44.setMinimumSize(QSize(92, 21))
+
+        self.horizontalLayout_21.addWidget(self.label_44)
+
+
+        self.verticalLayout_34.addLayout(self.horizontalLayout_21)
+
+        self.horizontalLayout_22 = QHBoxLayout()
+        self.horizontalLayout_22.setObjectName(u"horizontalLayout_22")
+        self.label_45 = QLabel(self.widget_2)
+        self.label_45.setObjectName(u"label_45")
+        sizePolicy3.setHeightForWidth(self.label_45.sizePolicy().hasHeightForWidth())
+        self.label_45.setSizePolicy(sizePolicy3)
+        self.label_45.setMinimumSize(QSize(21, 21))
+        self.label_45.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.horizontalLayout_22.addWidget(self.label_45)
+
+        self.label_46 = QLabel(self.widget_2)
+        self.label_46.setObjectName(u"label_46")
+        self.label_46.setMinimumSize(QSize(92, 21))
+
+        self.horizontalLayout_22.addWidget(self.label_46)
+
+
+        self.verticalLayout_34.addLayout(self.horizontalLayout_22)
+
+        self.horizontalLayout_10 = QHBoxLayout()
+        self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
+        self.label_19 = QLabel(self.widget_2)
+        self.label_19.setObjectName(u"label_19")
+        sizePolicy3.setHeightForWidth(self.label_19.sizePolicy().hasHeightForWidth())
+        self.label_19.setSizePolicy(sizePolicy3)
+        self.label_19.setMinimumSize(QSize(21, 21))
+        self.label_19.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.horizontalLayout_10.addWidget(self.label_19)
+
+        self.label_20 = QLabel(self.widget_2)
+        self.label_20.setObjectName(u"label_20")
+        self.label_20.setMinimumSize(QSize(92, 21))
+
+        self.horizontalLayout_10.addWidget(self.label_20)
+
+
+        self.verticalLayout_34.addLayout(self.horizontalLayout_10)
+
+        self.horizontalLayout_20 = QHBoxLayout()
+        self.horizontalLayout_20.setObjectName(u"horizontalLayout_20")
+        self.label_41 = QLabel(self.widget_2)
+        self.label_41.setObjectName(u"label_41")
+        sizePolicy3.setHeightForWidth(self.label_41.sizePolicy().hasHeightForWidth())
+        self.label_41.setSizePolicy(sizePolicy3)
+        self.label_41.setMinimumSize(QSize(21, 21))
+        self.label_41.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.horizontalLayout_20.addWidget(self.label_41)
+
+        self.label_42 = QLabel(self.widget_2)
+        self.label_42.setObjectName(u"label_42")
+        self.label_42.setMinimumSize(QSize(92, 21))
+
+        self.horizontalLayout_20.addWidget(self.label_42)
+
+
+        self.verticalLayout_34.addLayout(self.horizontalLayout_20)
+
+        self.horizontalLayout_49 = QHBoxLayout()
+        self.horizontalLayout_49.setObjectName(u"horizontalLayout_49")
+        self.label_69 = QLabel(self.widget_2)
+        self.label_69.setObjectName(u"label_69")
+        sizePolicy3.setHeightForWidth(self.label_69.sizePolicy().hasHeightForWidth())
+        self.label_69.setSizePolicy(sizePolicy3)
+        self.label_69.setMinimumSize(QSize(21, 21))
+        self.label_69.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.horizontalLayout_49.addWidget(self.label_69)
+
+        self.label_70 = QLabel(self.widget_2)
+        self.label_70.setObjectName(u"label_70")
+        self.label_70.setMinimumSize(QSize(92, 21))
+
+        self.horizontalLayout_49.addWidget(self.label_70)
+
+
+        self.verticalLayout_34.addLayout(self.horizontalLayout_49)
+
+
+        self.horizontalLayout_53.addWidget(self.widget_2)
+
+        self.widget_3 = QWidget(self.widget_5)
+        self.widget_3.setObjectName(u"widget_3")
+        self.verticalLayout_35 = QVBoxLayout(self.widget_3)
+        self.verticalLayout_35.setObjectName(u"verticalLayout_35")
+        self.horizontalLayout_27 = QHBoxLayout()
+        self.horizontalLayout_27.setObjectName(u"horizontalLayout_27")
+        self.label_55 = QLabel(self.widget_3)
+        self.label_55.setObjectName(u"label_55")
+        sizePolicy3.setHeightForWidth(self.label_55.sizePolicy().hasHeightForWidth())
+        self.label_55.setSizePolicy(sizePolicy3)
+        self.label_55.setMinimumSize(QSize(21, 21))
+        self.label_55.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.horizontalLayout_27.addWidget(self.label_55)
+
+        self.label_56 = QLabel(self.widget_3)
+        self.label_56.setObjectName(u"label_56")
+        self.label_56.setMinimumSize(QSize(92, 21))
+
+        self.horizontalLayout_27.addWidget(self.label_56)
+
+
+        self.verticalLayout_35.addLayout(self.horizontalLayout_27)
+
+        self.horizontalLayout_26 = QHBoxLayout()
+        self.horizontalLayout_26.setObjectName(u"horizontalLayout_26")
+        self.label_53 = QLabel(self.widget_3)
+        self.label_53.setObjectName(u"label_53")
+        sizePolicy3.setHeightForWidth(self.label_53.sizePolicy().hasHeightForWidth())
+        self.label_53.setSizePolicy(sizePolicy3)
+        self.label_53.setMinimumSize(QSize(21, 21))
+        self.label_53.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.horizontalLayout_26.addWidget(self.label_53)
+
+        self.label_54 = QLabel(self.widget_3)
+        self.label_54.setObjectName(u"label_54")
+        self.label_54.setMinimumSize(QSize(92, 21))
+
+        self.horizontalLayout_26.addWidget(self.label_54)
+
+
+        self.verticalLayout_35.addLayout(self.horizontalLayout_26)
+
+        self.horizontalLayout_25 = QHBoxLayout()
+        self.horizontalLayout_25.setObjectName(u"horizontalLayout_25")
+        self.label_51 = QLabel(self.widget_3)
+        self.label_51.setObjectName(u"label_51")
+        sizePolicy3.setHeightForWidth(self.label_51.sizePolicy().hasHeightForWidth())
+        self.label_51.setSizePolicy(sizePolicy3)
+        self.label_51.setMinimumSize(QSize(21, 21))
+        self.label_51.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.horizontalLayout_25.addWidget(self.label_51)
+
+        self.label_52 = QLabel(self.widget_3)
+        self.label_52.setObjectName(u"label_52")
+        self.label_52.setMinimumSize(QSize(92, 21))
+
+        self.horizontalLayout_25.addWidget(self.label_52)
+
+
+        self.verticalLayout_35.addLayout(self.horizontalLayout_25)
+
+        self.horizontalLayout_24 = QHBoxLayout()
+        self.horizontalLayout_24.setObjectName(u"horizontalLayout_24")
+        self.label_49 = QLabel(self.widget_3)
+        self.label_49.setObjectName(u"label_49")
+        sizePolicy3.setHeightForWidth(self.label_49.sizePolicy().hasHeightForWidth())
+        self.label_49.setSizePolicy(sizePolicy3)
+        self.label_49.setMinimumSize(QSize(21, 21))
+        self.label_49.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.horizontalLayout_24.addWidget(self.label_49)
+
+        self.label_50 = QLabel(self.widget_3)
+        self.label_50.setObjectName(u"label_50")
+        self.label_50.setMinimumSize(QSize(92, 21))
+
+        self.horizontalLayout_24.addWidget(self.label_50)
+
+
+        self.verticalLayout_35.addLayout(self.horizontalLayout_24)
+
+        self.horizontalLayout_28 = QHBoxLayout()
+        self.horizontalLayout_28.setObjectName(u"horizontalLayout_28")
+        self.label_57 = QLabel(self.widget_3)
+        self.label_57.setObjectName(u"label_57")
+        sizePolicy3.setHeightForWidth(self.label_57.sizePolicy().hasHeightForWidth())
+        self.label_57.setSizePolicy(sizePolicy3)
+        self.label_57.setMinimumSize(QSize(21, 21))
+        self.label_57.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.horizontalLayout_28.addWidget(self.label_57)
+
+        self.label_58 = QLabel(self.widget_3)
+        self.label_58.setObjectName(u"label_58")
+        self.label_58.setMinimumSize(QSize(92, 21))
+
+        self.horizontalLayout_28.addWidget(self.label_58)
+
+
+        self.verticalLayout_35.addLayout(self.horizontalLayout_28)
+
+        self.horizontalLayout_30 = QHBoxLayout()
+        self.horizontalLayout_30.setObjectName(u"horizontalLayout_30")
+        self.label_61 = QLabel(self.widget_3)
+        self.label_61.setObjectName(u"label_61")
+        sizePolicy3.setHeightForWidth(self.label_61.sizePolicy().hasHeightForWidth())
+        self.label_61.setSizePolicy(sizePolicy3)
+        self.label_61.setMinimumSize(QSize(21, 21))
+        self.label_61.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.horizontalLayout_30.addWidget(self.label_61)
+
+        self.label_62 = QLabel(self.widget_3)
+        self.label_62.setObjectName(u"label_62")
+        self.label_62.setMinimumSize(QSize(92, 21))
+
+        self.horizontalLayout_30.addWidget(self.label_62)
+
+
+        self.verticalLayout_35.addLayout(self.horizontalLayout_30)
+
+
+        self.horizontalLayout_53.addWidget(self.widget_3)
+
+        self.horizontalSpacer_11 = QSpacerItem(89, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_53.addItem(self.horizontalSpacer_11)
+
+
+        self.verticalLayout_36.addWidget(self.widget_5)
+
+        self.horizontalLayout_52 = QHBoxLayout()
+        self.horizontalLayout_52.setSpacing(4)
+        self.horizontalLayout_52.setObjectName(u"horizontalLayout_52")
+        self.horizontalLayout_52.setContentsMargins(-1, 0, -1, 0)
+        self.label_59 = QLabel(self.widget_4)
+        self.label_59.setObjectName(u"label_59")
+        self.label_59.setMinimumSize(QSize(16, 16))
+        self.label_59.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.horizontalLayout_52.addWidget(self.label_59)
+
+        self.label_60 = QLabel(self.widget_4)
+        self.label_60.setObjectName(u"label_60")
+        self.label_60.setMinimumSize(QSize(16, 16))
+        self.label_60.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.horizontalLayout_52.addWidget(self.label_60)
+
+        self.label_64 = QLabel(self.widget_4)
+        self.label_64.setObjectName(u"label_64")
+        self.label_64.setMinimumSize(QSize(16, 16))
+        self.label_64.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.horizontalLayout_52.addWidget(self.label_64)
+
+        self.label_65 = QLabel(self.widget_4)
+        self.label_65.setObjectName(u"label_65")
+        self.label_65.setMinimumSize(QSize(16, 16))
+        self.label_65.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.horizontalLayout_52.addWidget(self.label_65)
+
+        self.label_66 = QLabel(self.widget_4)
+        self.label_66.setObjectName(u"label_66")
+        self.label_66.setMinimumSize(QSize(16, 16))
+        self.label_66.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.horizontalLayout_52.addWidget(self.label_66)
+
+        self.label_67 = QLabel(self.widget_4)
+        self.label_67.setObjectName(u"label_67")
+        self.label_67.setMinimumSize(QSize(16, 16))
+        self.label_67.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.horizontalLayout_52.addWidget(self.label_67)
+
+        self.label_68 = QLabel(self.widget_4)
+        self.label_68.setObjectName(u"label_68")
+        self.label_68.setMinimumSize(QSize(16, 16))
+        self.label_68.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.horizontalLayout_52.addWidget(self.label_68)
+
+        self.label_121 = QLabel(self.widget_4)
+        self.label_121.setObjectName(u"label_121")
+        self.label_121.setMinimumSize(QSize(16, 16))
+        self.label_121.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.horizontalLayout_52.addWidget(self.label_121)
+
+        self.horizontalSpacer_14 = QSpacerItem(155, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_52.addItem(self.horizontalSpacer_14)
+
+        self.horizontalLayout_52.setStretch(0, 1)
+        self.horizontalLayout_52.setStretch(1, 1)
+        self.horizontalLayout_52.setStretch(2, 1)
+        self.horizontalLayout_52.setStretch(3, 1)
+        self.horizontalLayout_52.setStretch(4, 1)
+        self.horizontalLayout_52.setStretch(5, 1)
+        self.horizontalLayout_52.setStretch(6, 1)
+        self.horizontalLayout_52.setStretch(7, 1)
+
+        self.verticalLayout_36.addLayout(self.horizontalLayout_52)
+
+
+        self.horizontalLayout_56.addWidget(self.widget_4)
+
+        self.verticalLayout_37 = QVBoxLayout()
+        self.verticalLayout_37.setObjectName(u"verticalLayout_37")
+        self.gridLayout_8 = QGridLayout()
+        self.gridLayout_8.setObjectName(u"gridLayout_8")
+        self.label_175 = QLabel(self.home)
+        self.label_175.setObjectName(u"label_175")
+        self.label_175.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.gridLayout_8.addWidget(self.label_175, 0, 0, 1, 1)
+
+        self.label_177 = QLabel(self.home)
+        self.label_177.setObjectName(u"label_177")
+
+        self.gridLayout_8.addWidget(self.label_177, 0, 1, 1, 1)
+
+        self.label_182 = QLabel(self.home)
+        self.label_182.setObjectName(u"label_182")
+        self.label_182.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.gridLayout_8.addWidget(self.label_182, 0, 2, 1, 1)
+
+        self.label_181 = QLabel(self.home)
+        self.label_181.setObjectName(u"label_181")
+
+        self.gridLayout_8.addWidget(self.label_181, 0, 3, 1, 1)
+
+        self.label_147 = QLabel(self.home)
+        self.label_147.setObjectName(u"label_147")
+        # todo
+        url = r'https://tw.ncsoft.com/static/ingamedata/bns/ui_resource/weapon/weapon_gu_071425_col4_8_1.png'
+        req = requests.get(url)
+        self.label_147.setPixmap(QPixmap().loadFromData(req.content))
+
+        self.gridLayout_8.addWidget(self.label_147, 0, 4, 1, 1)
+
+        self.label_158 = QLabel(self.home)
+        self.label_158.setObjectName(u"label_158")
+        self.label_158.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.gridLayout_8.addWidget(self.label_158, 0, 5, 1, 1)
+
+        self.label_172 = QLabel(self.home)
+        self.label_172.setObjectName(u"label_172")
+        self.label_172.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.gridLayout_8.addWidget(self.label_172, 0, 6, 1, 1)
+
+        self.label_174 = QLabel(self.home)
+        self.label_174.setObjectName(u"label_174")
+
+        self.label_174.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.gridLayout_8.addWidget(self.label_174, 0, 7, 1, 1)
+
+        self.label_176 = QLabel(self.home)
+        self.label_176.setObjectName(u"label_176")
+        self.label_176.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.gridLayout_8.addWidget(self.label_176, 1, 0, 1, 1)
+
+        self.label_178 = QLabel(self.home)
+        self.label_178.setObjectName(u"label_178")
+
+        self.gridLayout_8.addWidget(self.label_178, 1, 1, 1, 1)
+
+        self.label_180 = QLabel(self.home)
+        self.label_180.setObjectName(u"label_180")
+        self.label_180.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.gridLayout_8.addWidget(self.label_180, 1, 2, 1, 1)
+
+        self.label_179 = QLabel(self.home)
+        self.label_179.setObjectName(u"label_179")
+
+        self.gridLayout_8.addWidget(self.label_179, 1, 3, 1, 1)
+
+        self.label_169 = QLabel(self.home)
+        self.label_169.setObjectName(u"label_169")
+        self.label_169.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.gridLayout_8.addWidget(self.label_169, 1, 4, 1, 1)
+
+        self.label_170 = QLabel(self.home)
+        self.label_170.setObjectName(u"label_170")
+        self.label_170.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.gridLayout_8.addWidget(self.label_170, 1, 5, 1, 1)
+
+        self.label_171 = QLabel(self.home)
+        self.label_171.setObjectName(u"label_171")
+        self.label_171.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.gridLayout_8.addWidget(self.label_171, 1, 6, 1, 1)
+
+        self.label_173 = QLabel(self.home)
+        self.label_173.setObjectName(u"label_173")
+        self.label_173.setPixmap(QPixmap(u":/images/images/images/PyDracula.png"))
+
+        self.gridLayout_8.addWidget(self.label_173, 1, 7, 1, 1)
+
+
+        self.verticalLayout_37.addLayout(self.gridLayout_8)
+
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_37.addItem(self.verticalSpacer)
+
+        self.widget_6 = QWidget(self.home)
+        self.widget_6.setObjectName(u"widget_6")
+        self.gridLayout_7 = QGridLayout(self.widget_6)
+        self.gridLayout_7.setObjectName(u"gridLayout_7")
+        self.label_63 = QLabel(self.widget_6)
+        self.label_63.setObjectName(u"label_63")
+
+        self.gridLayout_7.addWidget(self.label_63, 0, 0, 1, 1)
+
+        self.label_136 = QLabel(self.widget_6)
+        self.label_136.setObjectName(u"label_136")
+        self.label_136.setLayoutDirection(Qt.LeftToRight)
+        self.label_136.setStyleSheet(u"color:#87c770;")
+        self.label_136.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_136.setMargin(0)
+        self.label_136.setIndent(-1)
+
+        self.gridLayout_7.addWidget(self.label_136, 0, 1, 1, 1)
+
+        self.label_149 = QLabel(self.widget_6)
+        self.label_149.setObjectName(u"label_149")
+
+        self.gridLayout_7.addWidget(self.label_149, 0, 2, 1, 1)
+
+        self.label_165 = QLabel(self.widget_6)
+        self.label_165.setObjectName(u"label_165")
+        self.label_165.setStyleSheet(u"color:#87c770;")
+        self.label_165.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout_7.addWidget(self.label_165, 0, 3, 1, 1)
+
+        self.label_122 = QLabel(self.widget_6)
+        self.label_122.setObjectName(u"label_122")
+
+        self.gridLayout_7.addWidget(self.label_122, 1, 0, 1, 1)
+
+        self.label_139 = QLabel(self.widget_6)
+        self.label_139.setObjectName(u"label_139")
+        self.label_139.setLayoutDirection(Qt.LeftToRight)
+        self.label_139.setStyleSheet(u"color:#87c770;")
+        self.label_139.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_139.setMargin(0)
+        self.label_139.setIndent(-1)
+
+        self.gridLayout_7.addWidget(self.label_139, 1, 1, 1, 1)
+
+        self.label_151 = QLabel(self.widget_6)
+        self.label_151.setObjectName(u"label_151")
+
+        self.gridLayout_7.addWidget(self.label_151, 1, 2, 1, 1)
+
+        self.label_163 = QLabel(self.widget_6)
+        self.label_163.setObjectName(u"label_163")
+        self.label_163.setStyleSheet(u"color:#87c770;")
+        self.label_163.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout_7.addWidget(self.label_163, 1, 3, 1, 1)
+
+        self.label_127 = QLabel(self.widget_6)
+        self.label_127.setObjectName(u"label_127")
+
+        self.gridLayout_7.addWidget(self.label_127, 2, 0, 1, 1)
+
+        self.label_146 = QLabel(self.widget_6)
+        self.label_146.setObjectName(u"label_146")
+        self.label_146.setLayoutDirection(Qt.LeftToRight)
+        self.label_146.setStyleSheet(u"color:#87c770;")
+        self.label_146.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_146.setMargin(0)
+        self.label_146.setIndent(-1)
+
+        self.gridLayout_7.addWidget(self.label_146, 2, 1, 1, 1)
+
+        self.label_157 = QLabel(self.widget_6)
+        self.label_157.setObjectName(u"label_157")
+
+        self.gridLayout_7.addWidget(self.label_157, 2, 2, 1, 1)
+
+        self.label_159 = QLabel(self.widget_6)
+        self.label_159.setObjectName(u"label_159")
+        self.label_159.setStyleSheet(u"color:#87c770;")
+        self.label_159.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout_7.addWidget(self.label_159, 2, 3, 1, 1)
+
+        self.label_128 = QLabel(self.widget_6)
+        self.label_128.setObjectName(u"label_128")
+
+        self.gridLayout_7.addWidget(self.label_128, 3, 0, 1, 1)
+
+        self.label_145 = QLabel(self.widget_6)
+        self.label_145.setObjectName(u"label_145")
+        self.label_145.setLayoutDirection(Qt.LeftToRight)
+        self.label_145.setStyleSheet(u"color:#87c770;")
+        self.label_145.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_145.setMargin(0)
+        self.label_145.setIndent(-1)
+
+        self.gridLayout_7.addWidget(self.label_145, 3, 1, 1, 1)
+
+        self.label_156 = QLabel(self.widget_6)
+        self.label_156.setObjectName(u"label_156")
+
+        self.gridLayout_7.addWidget(self.label_156, 3, 2, 1, 1)
+
+        self.label_164 = QLabel(self.widget_6)
+        self.label_164.setObjectName(u"label_164")
+        self.label_164.setStyleSheet(u"color:#87c770;")
+        self.label_164.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout_7.addWidget(self.label_164, 3, 3, 1, 1)
+
+        self.label_129 = QLabel(self.widget_6)
+        self.label_129.setObjectName(u"label_129")
+
+        self.gridLayout_7.addWidget(self.label_129, 4, 0, 1, 1)
+
+        self.label_142 = QLabel(self.widget_6)
+        self.label_142.setObjectName(u"label_142")
+        self.label_142.setLayoutDirection(Qt.LeftToRight)
+        self.label_142.setStyleSheet(u"color:#87c770;")
+        self.label_142.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_142.setMargin(0)
+        self.label_142.setIndent(-1)
+
+        self.gridLayout_7.addWidget(self.label_142, 4, 1, 1, 1)
+
+        self.label_153 = QLabel(self.widget_6)
+        self.label_153.setObjectName(u"label_153")
+
+        self.gridLayout_7.addWidget(self.label_153, 4, 2, 1, 1)
+
+        self.label_160 = QLabel(self.widget_6)
+        self.label_160.setObjectName(u"label_160")
+        self.label_160.setStyleSheet(u"color:#87c770;")
+        self.label_160.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout_7.addWidget(self.label_160, 4, 3, 1, 1)
+
+        self.label_130 = QLabel(self.widget_6)
+        self.label_130.setObjectName(u"label_130")
+
+        self.gridLayout_7.addWidget(self.label_130, 5, 0, 1, 1)
+
+        self.label_138 = QLabel(self.widget_6)
+        self.label_138.setObjectName(u"label_138")
+        self.label_138.setLayoutDirection(Qt.LeftToRight)
+        self.label_138.setStyleSheet(u"color:#87c770;")
+        self.label_138.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_138.setMargin(0)
+        self.label_138.setIndent(-1)
+
+        self.gridLayout_7.addWidget(self.label_138, 5, 1, 1, 1)
+
+        self.label_150 = QLabel(self.widget_6)
+        self.label_150.setObjectName(u"label_150")
+
+        self.gridLayout_7.addWidget(self.label_150, 5, 2, 1, 1)
+
+        self.label_161 = QLabel(self.widget_6)
+        self.label_161.setObjectName(u"label_161")
+        self.label_161.setStyleSheet(u"color:#87c770;")
+        self.label_161.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout_7.addWidget(self.label_161, 5, 3, 1, 1)
+
+        self.label_131 = QLabel(self.widget_6)
+        self.label_131.setObjectName(u"label_131")
+
+        self.gridLayout_7.addWidget(self.label_131, 6, 0, 1, 1)
+
+        self.label_137 = QLabel(self.widget_6)
+        self.label_137.setObjectName(u"label_137")
+        self.label_137.setLayoutDirection(Qt.LeftToRight)
+        self.label_137.setStyleSheet(u"color:#87c770;")
+        self.label_137.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_137.setMargin(0)
+        self.label_137.setIndent(-1)
+
+        self.gridLayout_7.addWidget(self.label_137, 6, 1, 1, 1)
+
+        self.label_148 = QLabel(self.widget_6)
+        self.label_148.setObjectName(u"label_148")
+
+        self.gridLayout_7.addWidget(self.label_148, 6, 2, 1, 1)
+
+        self.label_168 = QLabel(self.widget_6)
+        self.label_168.setObjectName(u"label_168")
+        self.label_168.setStyleSheet(u"color:#87c770;")
+        self.label_168.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout_7.addWidget(self.label_168, 6, 3, 1, 1)
+
+        self.label_132 = QLabel(self.widget_6)
+        self.label_132.setObjectName(u"label_132")
+
+        self.gridLayout_7.addWidget(self.label_132, 7, 0, 1, 1)
+
+        self.label_144 = QLabel(self.widget_6)
+        self.label_144.setObjectName(u"label_144")
+        self.label_144.setLayoutDirection(Qt.LeftToRight)
+        self.label_144.setStyleSheet(u"color:#87c770;")
+        self.label_144.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_144.setMargin(0)
+        self.label_144.setIndent(-1)
+
+        self.gridLayout_7.addWidget(self.label_144, 7, 1, 1, 1)
+
+        self.label_154 = QLabel(self.widget_6)
+        self.label_154.setObjectName(u"label_154")
+
+        self.gridLayout_7.addWidget(self.label_154, 7, 2, 1, 1)
+
+        self.label_166 = QLabel(self.widget_6)
+        self.label_166.setObjectName(u"label_166")
+        self.label_166.setStyleSheet(u"color:#87c770;")
+        self.label_166.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout_7.addWidget(self.label_166, 7, 3, 1, 1)
+
+        self.label_133 = QLabel(self.widget_6)
+        self.label_133.setObjectName(u"label_133")
+
+        self.gridLayout_7.addWidget(self.label_133, 8, 0, 1, 1)
+
+        self.label_143 = QLabel(self.widget_6)
+        self.label_143.setObjectName(u"label_143")
+        self.label_143.setLayoutDirection(Qt.LeftToRight)
+        self.label_143.setStyleSheet(u"color:#87c770;")
+        self.label_143.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_143.setMargin(0)
+        self.label_143.setIndent(-1)
+
+        self.gridLayout_7.addWidget(self.label_143, 8, 1, 1, 1)
+
+        self.label_155 = QLabel(self.widget_6)
+        self.label_155.setObjectName(u"label_155")
+
+        self.gridLayout_7.addWidget(self.label_155, 8, 2, 1, 1)
+
+        self.label_167 = QLabel(self.widget_6)
+        self.label_167.setObjectName(u"label_167")
+        self.label_167.setStyleSheet(u"color:#87c770;")
+        self.label_167.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout_7.addWidget(self.label_167, 8, 3, 1, 1)
+
+        self.label_134 = QLabel(self.widget_6)
+        self.label_134.setObjectName(u"label_134")
+
+        self.gridLayout_7.addWidget(self.label_134, 9, 0, 1, 1)
+
+        self.label_140 = QLabel(self.widget_6)
+        self.label_140.setObjectName(u"label_140")
+        self.label_140.setLayoutDirection(Qt.LeftToRight)
+        self.label_140.setStyleSheet(u"color:#87c770;")
+        self.label_140.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_140.setMargin(0)
+        self.label_140.setIndent(-1)
+
+        self.gridLayout_7.addWidget(self.label_140, 9, 1, 1, 1)
+
+        self.label_152 = QLabel(self.widget_6)
+        self.label_152.setObjectName(u"label_152")
+
+        self.gridLayout_7.addWidget(self.label_152, 9, 2, 1, 1)
+
+        self.label_162 = QLabel(self.widget_6)
+        self.label_162.setObjectName(u"label_162")
+        self.label_162.setStyleSheet(u"color:#87c770;")
+        self.label_162.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout_7.addWidget(self.label_162, 9, 3, 1, 1)
+
+        self.label_135 = QLabel(self.widget_6)
+        self.label_135.setObjectName(u"label_135")
+
+        self.gridLayout_7.addWidget(self.label_135, 10, 0, 1, 1)
+
+        self.label_141 = QLabel(self.widget_6)
+        self.label_141.setObjectName(u"label_141")
+        self.label_141.setLayoutDirection(Qt.LeftToRight)
+        self.label_141.setStyleSheet(u"color:#87c770;")
+        self.label_141.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_141.setMargin(0)
+        self.label_141.setIndent(-1)
+
+        self.gridLayout_7.addWidget(self.label_141, 10, 1, 1, 1)
+
+
+        self.verticalLayout_37.addWidget(self.widget_6)
+
+
+        self.horizontalLayout_56.addLayout(self.verticalLayout_37)
+
+
+        self.verticalLayout_38.addLayout(self.horizontalLayout_56)
+
         self.stackedWidget.addWidget(self.home)
         self.widgets = QWidget()
         self.widgets.setObjectName(u"widgets")
@@ -1100,9 +2076,9 @@ class Ui_MainWindow(object):
         self.pushButton.setFont(font)
         self.pushButton.setCursor(QCursor(Qt.PointingHandCursor))
         self.pushButton.setStyleSheet(u"background-color: rgb(52, 59, 72);")
-        icon4 = QIcon()
-        icon4.addFile(u":/icons/images/icons/cil-folder-open.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton.setIcon(icon4)
+        icon5 = QIcon()
+        icon5.addFile(u":/icons/images/icons/cil-folder-open.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton.setIcon(icon5)
 
         self.gridLayout.addWidget(self.pushButton, 0, 1, 1, 1)
 
@@ -1177,7 +2153,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 218, 218))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 274, 218))
         self.scrollAreaWidgetContents.setStyleSheet(u" QScrollBar:vertical {\n"
 "	border: none;\n"
 "    background: rgb(52, 59, 72);\n"
@@ -1225,9 +2201,9 @@ class Ui_MainWindow(object):
         self.commandLinkButton.setObjectName(u"commandLinkButton")
         self.commandLinkButton.setCursor(QCursor(Qt.PointingHandCursor))
         self.commandLinkButton.setStyleSheet(u"")
-        icon5 = QIcon()
-        icon5.addFile(u":/icons/images/icons/cil-link.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.commandLinkButton.setIcon(icon5)
+        icon6 = QIcon()
+        icon6.addFile(u":/icons/images/icons/cil-link.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.commandLinkButton.setIcon(icon6)
 
         self.gridLayout_2.addWidget(self.commandLinkButton, 1, 6, 1, 1)
 
@@ -1267,7 +2243,7 @@ class Ui_MainWindow(object):
         if (self.tableWidget.rowCount() < 16):
             self.tableWidget.setRowCount(16)
         font4 = QFont()
-        font4.setFamily(u"Segoe UI")
+        font4.setFamilies([u"Segoe UI"])
         __qtablewidgetitem4 = QTableWidgetItem()
         __qtablewidgetitem4.setFont(font4);
         self.tableWidget.setVerticalHeaderItem(0, __qtablewidgetitem4)
@@ -1310,11 +2286,11 @@ class Ui_MainWindow(object):
         __qtablewidgetitem23 = QTableWidgetItem()
         self.tableWidget.setItem(0, 3, __qtablewidgetitem23)
         self.tableWidget.setObjectName(u"tableWidget")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.tableWidget.sizePolicy().hasHeightForWidth())
-        self.tableWidget.setSizePolicy(sizePolicy3)
+        sizePolicy4 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.tableWidget.sizePolicy().hasHeightForWidth())
+        self.tableWidget.setSizePolicy(sizePolicy4)
         palette = QPalette()
         brush = QBrush(QColor(221, 221, 221, 255))
         brush.setStyle(Qt.SolidPattern)
@@ -1328,30 +2304,32 @@ class Ui_MainWindow(object):
         brush2.setStyle(Qt.NoBrush)
         palette.setBrush(QPalette.Active, QPalette.Base, brush2)
         palette.setBrush(QPalette.Active, QPalette.Window, brush1)
+        brush3 = QBrush(QColor(221, 221, 221, 128))
+        brush3.setStyle(Qt.SolidPattern)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette.setBrush(QPalette.Active, QPalette.PlaceholderText, brush)
+        palette.setBrush(QPalette.Active, QPalette.PlaceholderText, brush3)
 #endif
         palette.setBrush(QPalette.Inactive, QPalette.WindowText, brush)
         palette.setBrush(QPalette.Inactive, QPalette.Button, brush1)
         palette.setBrush(QPalette.Inactive, QPalette.Text, brush)
         palette.setBrush(QPalette.Inactive, QPalette.ButtonText, brush)
-        brush3 = QBrush(QColor(0, 0, 0, 255))
-        brush3.setStyle(Qt.NoBrush)
-        palette.setBrush(QPalette.Inactive, QPalette.Base, brush3)
+        brush4 = QBrush(QColor(0, 0, 0, 255))
+        brush4.setStyle(Qt.NoBrush)
+        palette.setBrush(QPalette.Inactive, QPalette.Base, brush4)
         palette.setBrush(QPalette.Inactive, QPalette.Window, brush1)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush)
+        palette.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush3)
 #endif
         palette.setBrush(QPalette.Disabled, QPalette.WindowText, brush)
         palette.setBrush(QPalette.Disabled, QPalette.Button, brush1)
         palette.setBrush(QPalette.Disabled, QPalette.Text, brush)
         palette.setBrush(QPalette.Disabled, QPalette.ButtonText, brush)
-        brush4 = QBrush(QColor(0, 0, 0, 255))
-        brush4.setStyle(Qt.NoBrush)
-        palette.setBrush(QPalette.Disabled, QPalette.Base, brush4)
+        brush5 = QBrush(QColor(0, 0, 0, 255))
+        brush5.setStyle(Qt.NoBrush)
+        palette.setBrush(QPalette.Disabled, QPalette.Base, brush5)
         palette.setBrush(QPalette.Disabled, QPalette.Window, brush1)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush)
+        palette.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush3)
 #endif
         self.tableWidget.setPalette(palette)
         self.tableWidget.setFrameShape(QFrame.NoFrame)
@@ -1491,7 +2469,7 @@ class Ui_MainWindow(object):
         self.creditsLabel.setObjectName(u"creditsLabel")
         self.creditsLabel.setMaximumSize(QSize(16777215, 16))
         font5 = QFont()
-        font5.setFamily(u"Segoe UI")
+        font5.setFamilies([u"Segoe UI"])
         font5.setBold(False)
         font5.setItalic(False)
         self.creditsLabel.setFont(font5)
@@ -1530,7 +2508,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1538,10 +2516,10 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
-        self.titleLeftApp.setText(QCoreApplication.translate("MainWindow", u"PyDracula", None))
-        self.titleLeftDescription.setText(QCoreApplication.translate("MainWindow", u"Modern GUI / Flat Style", None))
-        self.toggleButton.setText(QCoreApplication.translate("MainWindow", u"Hide", None))
-        self.btn_home.setText(QCoreApplication.translate("MainWindow", u"Home", None))
+        self.titleLeftApp.setText(QCoreApplication.translate("MainWindow", u"Arcadia", None))
+        self.titleLeftDescription.setText(QCoreApplication.translate("MainWindow", u"\u963f\u5361\u8482\u4e9a", None))
+        self.toggleButton.setText(QCoreApplication.translate("MainWindow", u"\u9690\u85cf", None))
+        self.btn_home.setText(QCoreApplication.translate("MainWindow", u"\u4e3b\u9875", None))
         self.btn_widgets.setText(QCoreApplication.translate("MainWindow", u"Widgets", None))
         self.btn_new.setText(QCoreApplication.translate("MainWindow", u"New", None))
         self.btn_save.setText(QCoreApplication.translate("MainWindow", u"Save", None))
@@ -1558,18 +2536,21 @@ class Ui_MainWindow(object):
         self.textEdit.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
 "</style></head><body style=\" font-family:'Segoe UI'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">PyDracula</span></p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#ffffff;\">An interface created using Python and PySide (support for PyQt), and with colors based on the Dracula theme created by Zeno Rocha.</span></p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-inde"
-                        "nt:0; text-indent:0px;\"><span style=\" color:#ffffff;\">MIT License</span></p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#ffffff;\">An interface created using Python and PySide (support for PyQt), and with colors based on the Dracula theme created by Zen"
+                        "o Rocha.</span></p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#ffffff;\">MIT License</span></p>\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#bd93f9;\">Created by: Wanderson M. Pimenta</span></p>\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">Convert UI</span></p>\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ffffff;\">pyside6-uic main.ui &gt; ui_main.py</span></p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">Convert QRC</span></p>\n"
-"<p align=\"center\" "
-                        "style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ffffff;\">pyside6-rcc resources.qrc -o resources_rc.py</span></p></body></html>", None))
-        self.titleRightInfo.setText(QCoreApplication.translate("MainWindow", u"PyDracula APP - Theme with colors based on Dracula for Python.", None))
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-in"
+                        "dent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">Convert QRC</span></p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ffffff;\">pyside6-rcc resources.qrc -o resources_rc.py</span></p></body></html>", None))
+        self.titleRightInfo.setText(QCoreApplication.translate("MainWindow", u"Arcadia APP  -To be is to love!", None))
 #if QT_CONFIG(tooltip)
         self.settingsTopBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Settings", None))
 #endif // QT_CONFIG(tooltip)
@@ -1586,6 +2567,114 @@ class Ui_MainWindow(object):
         self.closeAppBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Close", None))
 #endif // QT_CONFIG(tooltip)
         self.closeAppBtn.setText("")
+        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u" \u641c\u7d22", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"\u5b87\u5b99\u548c\u97f3", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"\u670d\u52a1\u5668\uff1a\u75be\u98ce\u8fc5\u96f7", None))
+        self.label_5.setText(QCoreApplication.translate("MainWindow", u"Lv.60", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"\u6d2a\u95e8 27 \u661f", None))
+        self.label_6.setText(QCoreApplication.translate("MainWindow", u"\u67aa\u624b", None))
+        self.label_7.setText("")
+        self.label_10.setText("")
+        self.label_9.setText("")
+        self.label_8.setText(QCoreApplication.translate("MainWindow", u"+15\u771f\u4e39\u971e\u624b\u67aa", None))
+        self.label_11.setText("")
+        self.label_12.setText("")
+        self.label_13.setText("")
+        self.label_14.setText("")
+        self.label_15.setText("")
+        self.label_16.setText("")
+        self.label_17.setText("")
+        self.label_18.setText("")
+        self.label_47.setText("")
+        self.label_48.setText(QCoreApplication.translate("MainWindow", u"\u771f\u795e\u5149\u9b42", None))
+        self.label_43.setText("")
+        self.label_44.setText(QCoreApplication.translate("MainWindow", u"+11\u98ce\u5c9b\u8033\u73af", None))
+        self.label_45.setText("")
+        self.label_46.setText(QCoreApplication.translate("MainWindow", u"+11\u5929\u5764\u795e\u529f\u724c", None))
+        self.label_19.setText("")
+        self.label_20.setText(QCoreApplication.translate("MainWindow", u"+11\u98ce\u5c9b\u6212\u6307", None))
+        self.label_41.setText("")
+        self.label_42.setText(QCoreApplication.translate("MainWindow", u"+11\u98ce\u5c9b\u62a4\u62f3", None))
+        self.label_69.setText("")
+        self.label_70.setText(QCoreApplication.translate("MainWindow", u"\u89c9\u9192\u795e\u8bdd\u5b88\u62a4\u77f3", None))
+        self.label_55.setText("")
+        self.label_56.setText(QCoreApplication.translate("MainWindow", u"+11\u98ce\u5c9b\u9879\u94fe", None))
+        self.label_53.setText("")
+        self.label_54.setText(QCoreApplication.translate("MainWindow", u"+11\u98ce\u5c9b\u624b\u956f", None))
+        self.label_51.setText("")
+        self.label_52.setText(QCoreApplication.translate("MainWindow", u"+11\u98ce\u5c9b\u8170\u5e26", None))
+        self.label_49.setText("")
+        self.label_50.setText(QCoreApplication.translate("MainWindow", u"+11\u5343\u624b\u79d8\u529f\u724c", None))
+        self.label_57.setText("")
+        self.label_58.setText(QCoreApplication.translate("MainWindow", u"\u771f\u95ea\u96f7\u7075", None))
+        self.label_61.setText("")
+        self.label_62.setText(QCoreApplication.translate("MainWindow", u"+11\u5929\u5149\u661f5\u6bb5", None))
+        self.label_59.setText("")
+        self.label_60.setText("")
+        self.label_64.setText("")
+        self.label_65.setText("")
+        self.label_66.setText("")
+        self.label_67.setText("")
+        self.label_68.setText("")
+        self.label_121.setText("")
+        self.label_175.setText("")
+        self.label_177.setText(QCoreApplication.translate("MainWindow", u"\u6781\u81f4\u611f\u5b98", None))
+        self.label_182.setText("")
+        self.label_181.setText(QCoreApplication.translate("MainWindow", u"\u6781\u81f4\u611f\u5b98", None))
+        self.label_147.setText("")
+        self.label_158.setText("")
+        self.label_172.setText("")
+        self.label_174.setText("")
+        self.label_176.setText("")
+        self.label_178.setText(QCoreApplication.translate("MainWindow", u"\u6781\u81f4\u611f\u5b98\u9970\u54c1", None))
+        self.label_180.setText("")
+        self.label_179.setText(QCoreApplication.translate("MainWindow", u"\u6781\u81f4\u611f\u5b98\u9970\u54c1", None))
+        self.label_169.setText("")
+        self.label_170.setText("")
+        self.label_171.setText("")
+        self.label_173.setText("")
+        self.label_63.setText(QCoreApplication.translate("MainWindow", u"\u653b\u51fb\u529b", None))
+        self.label_136.setText(QCoreApplication.translate("MainWindow", u"4130", None))
+        self.label_149.setText(QCoreApplication.translate("MainWindow", u"\u751f\u547d\u529b", None))
+        self.label_165.setText(QCoreApplication.translate("MainWindow", u"648298", None))
+        self.label_122.setText(QCoreApplication.translate("MainWindow", u"\u5bf9\u4eba\u653b\u51fb\u529b", None))
+        self.label_139.setText(QCoreApplication.translate("MainWindow", u"4644", None))
+        self.label_151.setText(QCoreApplication.translate("MainWindow", u"\u9632\u5fa1\u529b", None))
+        self.label_163.setText(QCoreApplication.translate("MainWindow", u"11988", None))
+        self.label_127.setText(QCoreApplication.translate("MainWindow", u"\u964d\u9b54\u653b\u51fb\u529b", None))
+        self.label_146.setText(QCoreApplication.translate("MainWindow", u"9499", None))
+        self.label_157.setText(QCoreApplication.translate("MainWindow", u"\u5bf9\u4eba\u9632\u5fa1\u529b", None))
+        self.label_159.setText(QCoreApplication.translate("MainWindow", u"18318", None))
+        self.label_128.setText(QCoreApplication.translate("MainWindow", u"\u8d2f\u7a7f", None))
+        self.label_145.setText(QCoreApplication.translate("MainWindow", u"5296", None))
+        self.label_156.setText(QCoreApplication.translate("MainWindow", u"\u964d\u9b54\u9632\u5fa1\u529b", None))
+        self.label_164.setText(QCoreApplication.translate("MainWindow", u"15971", None))
+        self.label_129.setText(QCoreApplication.translate("MainWindow", u"\u547d\u4e2d", None))
+        self.label_142.setText(QCoreApplication.translate("MainWindow", u"9566", None))
+        self.label_153.setText(QCoreApplication.translate("MainWindow", u"\u95ea\u907f", None))
+        self.label_160.setText(QCoreApplication.translate("MainWindow", u"8157", None))
+        self.label_130.setText(QCoreApplication.translate("MainWindow", u"\u66b4\u51fb", None))
+        self.label_138.setText(QCoreApplication.translate("MainWindow", u"16900", None))
+        self.label_150.setText(QCoreApplication.translate("MainWindow", u"\u683c\u6321", None))
+        self.label_161.setText(QCoreApplication.translate("MainWindow", u"6769", None))
+        self.label_131.setText(QCoreApplication.translate("MainWindow", u"\u66b4\u51fb\u4f24\u5bb3", None))
+        self.label_137.setText(QCoreApplication.translate("MainWindow", u"41385", None))
+        self.label_148.setText(QCoreApplication.translate("MainWindow", u"\u66b4\u51fb\u9632\u5fa1", None))
+        self.label_168.setText(QCoreApplication.translate("MainWindow", u"7730", None))
+        self.label_132.setText(QCoreApplication.translate("MainWindow", u"\u989d\u5916\u4f24\u5bb3", None))
+        self.label_144.setText(QCoreApplication.translate("MainWindow", u"661", None))
+        self.label_154.setText(QCoreApplication.translate("MainWindow", u"\u518d\u751f", None))
+        self.label_166.setText(QCoreApplication.translate("MainWindow", u"75", None))
+        self.label_133.setText(QCoreApplication.translate("MainWindow", u"\u5a01\u80c1", None))
+        self.label_143.setText(QCoreApplication.translate("MainWindow", u"100%", None))
+        self.label_155.setText(QCoreApplication.translate("MainWindow", u"\u6062\u590d", None))
+        self.label_167.setText(QCoreApplication.translate("MainWindow", u"131.72%", None))
+        self.label_134.setText(QCoreApplication.translate("MainWindow", u"\u5f02\u5e38\u72b6\u6001\u4f24\u5bb3", None))
+        self.label_140.setText(QCoreApplication.translate("MainWindow", u"4677", None))
+        self.label_152.setText(QCoreApplication.translate("MainWindow", u"\u5f02\u5e38\u72b6\u6001\u9632\u5fa1\u529b", None))
+        self.label_162.setText(QCoreApplication.translate("MainWindow", u"1094", None))
+        self.label_135.setText(QCoreApplication.translate("MainWindow", u"\u529f\u529b", None))
+        self.label_141.setText(QCoreApplication.translate("MainWindow", u"33401", None))
         self.labelBoxBlenderInstalation.setText(QCoreApplication.translate("MainWindow", u"FILE BOX", None))
         self.lineEdit.setText("")
         self.lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Type here", None))
@@ -1656,7 +2745,7 @@ class Ui_MainWindow(object):
         self.btn_message.setText(QCoreApplication.translate("MainWindow", u"Message", None))
         self.btn_print.setText(QCoreApplication.translate("MainWindow", u"Print", None))
         self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))
-        self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"By: Wanderson M. Pimenta", None))
-        self.version.setText(QCoreApplication.translate("MainWindow", u"v1.0.3", None))
+        self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"\u8054\u7cfb\u65b9\u5f0f QQ: 2428807144 \u5fae\u4fe1: Cangle_22", None))
+        self.version.setText(QCoreApplication.translate("MainWindow", u"v1.0.0", None))
     # retranslateUi
 
